@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width", initial-scale=1.0 />
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>`
+
+<div class="Section3"></div>
+
+<div class="Section4 container">
+    <div class="carousel">
+        <div class="Testimonials slider">
+            <section class="carousel-data">
+                <div class="pad-left-right">
+                    &ldquo; <br>
+                    Advance Opportunity is well respected and has strong relationships within the business, banking, legal and insolvency community. We&#39ll never surprise you with last-minute charges, because our fees are totally transparent (and actually quite affordable). We&#39ll also never try to force you into a one-size-fits-all solution. Because we get it, your business is unique.
+                    <span>&nbsp;</span>
+                    <div class="TestimonialsID">
+                        Andrew Smith
+                    </div>
+                </div>
+            </section>
+            <section class="carousel-data">
+                <div class="pad-left-right">
+                    &ldquo; <br>
+                    Advance Opportunity is well respected and has strong relationships within the business, banking, legal and insolvency community. We&#39ll never surprise you with last-minute charges, because our fees are totally transparent (and actually quite affordable). We&#39ll also never try to force you into a one-size-fits-all solution. Because we get it, your business is unique.
+                    <span>&nbsp;</span>
+                    <div class="TestimonialsID">
+                        Andrew Smith 2
+                    </div>
+                </div>
+            </section>
+            <section class="carousel-data">
+                <div class="pad-left-right">
+                    &ldquo; <br>
+                    Advance Opportunity is well respected and has strong relationships within the business, banking, legal and insolvency community. We&#39ll never surprise you with last-minute charges, because our fees are totally transparent (and actually quite affordable). We&#39ll also never try to force you into a one-size-fits-all solution. Because we get it, your business is unique.
+                    <span>&nbsp;</span>
+                    <div class="TestimonialsID">
+                        Andrew Smith 3
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+    <div class="CarouselNav" >
+        <svg class="CarouselButton active" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40"/>
+        </svg>
+        <svg class="CarouselButton" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40"/>
+        </svg>
+        <svg class="CarouselButton" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40"/>
+        </svg>
+    </div>
+</div>
+
+<div class="Section5"></div>
+<script type="text/javascript">
+    const slider = document.querySelector('.slider');
+    document.querySelectorAll('.CarouselButton').forEach(function(indecator , ind){
+        indecator.addEventListener('click',function(){
+            slider.style.transform = 'translate('+(ind) * -25+'%)';
+            document.querySelector('.CarouselNav .active').classList.remove('active');
+            this.classList.add('active');
+        })
+    })
+    
+
+    const carousel = document.querySelector('.slider');
+    let initialPosition = null;
+    let moving = false;
+    let transform = 0 ;
+    let carouselPosition = 0;
+    window.addEventListener('pointerdown',function(e){
+        initialPosition = e.pageX;
+        moving = true;
+        const transitionMatrix = window.getComputedStyle(carousel).getPropertyValue('transform');
+        if (transitionMatrix !== 'none') {
+            transform = parseInt(transitionMatrix.split(',')[4].trim());
+        }
+    });
+    window.addEventListener('pointermove',function(e) {
+        if (moving) {
+            const currentPosition = e.pageX;
+            const diff = currentPosition - initialPosition ;
+            carousel.style.transform = `translateX(${transform + diff}px)`;
+            carouselPosition = transform + diff;
+            console.log(carouselPosition);
+        }
+    });
+    window.addEventListener('pointerup',function(event) {
+        if (carouselPosition < -150 && carouselPosition > -525) {
+            carousel.style.transform = 'translateX(-25%)';
+        }else if(carouselPosition < -585 && carouselPosition > -750){
+            carousel.style.transform = 'translateX(-50%)';
+        }else{
+            carousel.style.transform = 'translateX(0)';
+        }
+        moving = false;
+    });
+
+</script>
+</body>
+</html>

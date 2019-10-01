@@ -1,0 +1,101 @@
+body {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'gt_americaexpanded_regular';
+  src: url('./FONTS/gt-america-expanded-regular-webfont.woff2') format('woff2'),
+       url('./FONTS/gt-america-expanded-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.Section3, .Section5 {
+  height: 100vh;
+  background: rgb(255, 114, 60);
+  position: relative;
+}
+
+.Section4 {
+  background: rgb(255, 255, 255);
+  position: relative;
+}
+
+.Testimonials {
+  color: rgb(0, 0, 0) !important;
+  font-family: 'gt_americaexpanded_regular';
+  text-align: center;
+  font-size: 4.4vw;
+  width: 81vw;
+  padding-top: 100px;
+  padding-bottom: 135px;
+  margin: 0 auto;
+  cursor: text;
+}
+
+@media screen and (min-width: 800px) {
+  .AboutUs, .Testimonials {
+    font-size: 36px;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .AboutUs, .Testimonials {
+    width: 850px;
+  }
+}
+
+.TestimonialsID {
+  font-size: 16px;
+}
+
+.CarouselNav {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+
+.CarouselButton {
+  fill: rgb(0, 0, 0);
+  width: 12px;
+  margin: 0 8px;
+}
+.container{
+    width: 90%;
+    overflow: hidden;
+    margin: 10px auto;
+}
+.carousel .slider{
+  width: 400%;
+  display: flex;
+  position: relative;
+  transition: all ease 0.3s;
+}
+.carousel .slider section{
+  width: 25%;
+}
+svg.CarouselButton.active {
+    opacity: 1;
+}
+svg.CarouselButton {
+    opacity: 0.5;
+}
+svg.CarouselButton:hover {
+    opacity: 1;
+    transition: all ease 0.3s;
+}
+.pad-left-right {
+    padding: 0px 12rem;
+}
+@media only screen and (max-width: 680px){
+  .pad-left-right {
+      padding: 0px 2rem;
+  }
+  .slider{
+    touch-action:none;
+  }
+}
