@@ -95,7 +95,7 @@ svg.CarouselButton:hover {
   .pad-left-right {
       padding: 0px 2rem;
   }
-  .slider{
+  .carousel{
     touch-action:none;
   }
   .carousel{
