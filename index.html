@@ -84,6 +84,7 @@
     let carouselPosition = 0;
     
     if (w < 680) {
+         document.querySelector('.CarouselButton1').classList.remove('active');
          window.addEventListener('pointerdown',function(e){
             initialPosition = e.pageX;
             moving = true;
