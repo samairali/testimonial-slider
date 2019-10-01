@@ -95,13 +95,18 @@ svg.CarouselButton:hover {
   .pad-left-right {
       padding: 0px 2rem;
   }
-  .carousel{
+  .slider{
     touch-action:none;
   }
   .carousel{
     height: 475px;
+    /*transition: all ease 0.3s;*/
   }
   .carousel .slider{
     padding: 0px 0px;
+  }
+  .Section4{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }

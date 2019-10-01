@@ -80,7 +80,8 @@
     let moving = false;
     let transform = 0 ;
     let carouselPosition = 0;
-    if (window.PointerEvent) {
+    w = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
+    if (w < 680) {
          window.addEventListener('pointerdown',function(e){
             initialPosition = e.pageX;
             moving = true;
@@ -100,9 +101,10 @@
         });
         window.addEventListener('pointerup',function(event) {
             if (carouselPosition < -150 && carouselPosition > -525) {
-                carousel.style.transform = 'translateX(-25%)';
+                carousel.style.transform = 'translateX(-100%)';
+                
             }else if(carouselPosition < -585 && carouselPosition > -750){
-                carousel.style.transform = 'translateX(-50%)';
+                carousel.style.transform = 'translateX(-200%)';
             }else{
                 carousel.style.transform = 'translateX(0)';
             }
