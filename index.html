@@ -51,13 +51,13 @@
         </div>
     </div>
     <div class="CarouselNav" >
-        <svg class="CarouselButton active" viewBox="0 0 100 100">
+        <svg class="CarouselButton active CarouselButton1" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40"/>
         </svg>
-        <svg class="CarouselButton" viewBox="0 0 100 100">
+        <svg class="CarouselButton CarouselButton2" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40"/>
         </svg>
-        <svg class="CarouselButton" viewBox="0 0 100 100">
+        <svg class="CarouselButton CarouselButton3" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40"/>
         </svg>
     </div>
@@ -65,22 +65,24 @@
 
 <div class="Section5"></div>
 <script type="text/javascript">
-    const slider = document.querySelector('.slider');
-    document.querySelectorAll('.CarouselButton').forEach(function(indecator , ind){
-        indecator.addEventListener('click',function(){
-            slider.style.transform = 'translate('+(ind) * -25+'%)';
-            document.querySelector('.CarouselNav .active').classList.remove('active');
-            this.classList.add('active');
+    w = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
+    if(w > 680){
+        const slider = document.querySelector('.slider');
+        document.querySelectorAll('.CarouselButton').forEach(function(indecator , ind){
+            indecator.addEventListener('click',function(){
+                slider.style.transform = 'translate('+(ind) * -25+'%)';
+                document.querySelector('.CarouselNav .active').classList.remove('active');
+                this.classList.add('active');
+            })
         })
-    })
-    
+    }    
 
     const carousel = document.querySelector('.carousel');
     let initialPosition = null;
     let moving = false;
     let transform = 0 ;
     let carouselPosition = 0;
-    w = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
+    
     if (w < 680) {
          window.addEventListener('pointerdown',function(e){
             initialPosition = e.pageX;
@@ -89,6 +91,7 @@
             if (transitionMatrix !== 'none') {
                 transform = parseInt(transitionMatrix.split(',')[4].trim());
             }
+            carousel.style.transition = 'initial';
         });
         window.addEventListener('pointermove',function(e) {
             if (moving) {
@@ -102,12 +105,27 @@
         window.addEventListener('pointerup',function(event) {
             if (carouselPosition < -150 && carouselPosition > -525) {
                 carousel.style.transform = 'translateX(-100%)';
+                document.querySelector('.CarouselButton1').classList.remove('active');
+                document.querySelector('.CarouselButton2').classList.add('active');
+                document.querySelector('.CarouselButton3').classList.remove('active');
+                carousel.style.transition = 'all ease 0.3s';
                 
-            }else if(carouselPosition < -585 && carouselPosition > -900){
+            }else if(carouselPosition < -525 && carouselPosition > -1600 ){
                 carousel.style.transform = 'translateX(-200%)';
-            }else{
+                document.querySelector('.CarouselButton1').classList.remove('active');
+                document.querySelector('.CarouselButton2').classList.remove('active');
+                document.querySelector('.CarouselButton3').classList.add('active');
+                carousel.style.transition = 'all ease 0.3s';
+            }else if (carouselPosition > 0 || carouselPosition > -150) {
                 carousel.style.transform = 'translateX(0)';
+                document.querySelector('.CarouselButton1').classList.add('active');
+                document.querySelector('.CarouselButton2').classList.remove('active');
+                document.querySelector('.CarouselButton3').classList.remove('active');
+                carousel.style.transition = 'all ease 0.3s';
             }
+            // else{
+            //     carousel.style.transform = 'translateX(0)';
+            // }
             moving = false;
         });
     }
