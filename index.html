@@ -80,33 +80,35 @@
     let moving = false;
     let transform = 0 ;
     let carouselPosition = 0;
-    window.addEventListener('pointerdown',function(e){
-        initialPosition = e.pageX;
-        moving = true;
-        const transitionMatrix = window.getComputedStyle(carousel).getPropertyValue('transform');
-        if (transitionMatrix !== 'none') {
-            transform = parseInt(transitionMatrix.split(',')[4].trim());
-        }
-    });
-    window.addEventListener('pointermove',function(e) {
-        if (moving) {
-            const currentPosition = e.pageX;
-            const diff = currentPosition - initialPosition ;
-            carousel.style.transform = `translateX(${transform + diff}px)`;
-            carouselPosition = transform + diff;
-            console.log(carouselPosition);
-        }
-    });
-    window.addEventListener('pointerup',function(event) {
-        if (carouselPosition < -150 && carouselPosition > -525) {
-            carousel.style.transform = 'translateX(-25%)';
-        }else if(carouselPosition < -585 && carouselPosition > -750){
-            carousel.style.transform = 'translateX(-50%)';
-        }else{
-            carousel.style.transform = 'translateX(0)';
-        }
-        moving = false;
-    });
+    if (window.PointerEvent) {
+         window.addEventListener('pointerdown',function(e){
+            initialPosition = e.pageX;
+            moving = true;
+            const transitionMatrix = window.getComputedStyle(carousel).getPropertyValue('transform');
+            if (transitionMatrix !== 'none') {
+                transform = parseInt(transitionMatrix.split(',')[4].trim());
+            }
+        });
+        window.addEventListener('pointermove',function(e) {
+            if (moving) {
+                const currentPosition = e.pageX;
+                const diff = currentPosition - initialPosition ;
+                carousel.style.transform = `translateX(${transform + diff}px)`;
+                carouselPosition = transform + diff;
+                console.log(carouselPosition);
+            }
+        });
+        window.addEventListener('pointerup',function(event) {
+            if (carouselPosition < -150 && carouselPosition > -525) {
+                carousel.style.transform = 'translateX(-25%)';
+            }else if(carouselPosition < -585 && carouselPosition > -750){
+                carousel.style.transform = 'translateX(-50%)';
+            }else{
+                carousel.style.transform = 'translateX(0)';
+            }
+            moving = false;
+        });
+    }
 
 </script>
 </body>

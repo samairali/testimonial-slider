@@ -98,4 +98,10 @@ svg.CarouselButton:hover {
   .slider{
     touch-action:none;
   }
+  .carousel{
+    height: 475px;
+  }
+  .carousel .slider{
+    padding: 0px 0px;
+  }
 }
