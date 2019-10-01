@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="CarouselNav" >
-        <svg class="CarouselButton active CarouselButton1" viewBox="0 0 100 100">
+        <svg class="CarouselButton CarouselButton1 active" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40"/>
         </svg>
         <svg class="CarouselButton CarouselButton2" viewBox="0 0 100 100">
@@ -84,7 +84,7 @@
     let carouselPosition = 0;
     
     if (w < 680) {
-         document.querySelector('.CarouselButton1').classList.remove('active');
+         document.querySelector('.CarouselButton1').classList.add('active');
          window.addEventListener('pointerdown',function(e){
             initialPosition = e.pageX;
             moving = true;

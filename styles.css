@@ -84,12 +84,15 @@ svg.CarouselButton.active {
 svg.CarouselButton {
     opacity: 0.5;
 }
-svg.CarouselButton:hover {
-    opacity: 1;
-    transition: all ease 0.3s;
-}
+
 .pad-left-right {
     padding: 0px 12rem;
+}
+@media only screen and (min-width: 680px){
+  svg.CarouselButton:hover {
+      opacity: 1;
+      transition: all ease 0.3s;
+  }
 }
 @media only screen and (max-width: 680px){
   .pad-left-right {
