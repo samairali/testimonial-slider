@@ -30,7 +30,7 @@ body {
   font-size: 4.4vw;
   width: 81vw;
   padding-top: 100px;
-  padding-bottom: 135px;
+  padding-bottom: 90px;
   margin: 0 auto;
   cursor: text;
 }
@@ -104,7 +104,7 @@ svg.CarouselButton {
     touch-action:none;
   }
   .carousel{
-    height: 525px;
+    /*height: 525px;*/
   }
   .carousel .slider{
     padding: 0px 0px;
