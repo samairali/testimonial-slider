@@ -103,6 +103,10 @@
                 const currentPosition = e.pageX;
                 const diff = currentPosition - initialPosition ;
                 carousel.style.webkitTransform  = `translateX(${transform + diff}px)`;
+                carousel.style.MozTransform  = `translateX(${transform + diff}px)`;
+                carousel.style.msTransform  = `translateX(${transform + diff}px)`;
+                carousel.style.OTransform  = `translateX(${transform + diff}px)`;
+                carousel.style.transform  = `translateX(${transform + diff}px)`;
                 carouselPosition = transform + diff;
                 console.log(carouselPosition);
             }
