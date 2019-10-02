@@ -105,6 +105,7 @@ svg.CarouselButton {
   }
   .carousel{
     /*height: 525px;*/
+      touch-action: none;
   }
   .carousel .slider{
     padding: 0px 0px;
