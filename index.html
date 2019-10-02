@@ -85,25 +85,33 @@
     
     if (w < 680) {
          document.querySelector('.CarouselButton1').classList.add('active');
-         window.addEventListener('pointerdown',function(e){
-            initialPosition = e.pageX;
+         window.addEventListener('touchstart',function(e){
+            console.log('working');
+            initialPosition = e.changedTouches[0].pageX;
             moving = true;
             const transitionMatrix = window.getComputedStyle(carousel).getPropertyValue('transform');
             if (transitionMatrix !== 'none') {
                 transform = parseInt(transitionMatrix.split(',')[4].trim());
             }
             carousel.style.transition = 'initial';
+            console.log(transform);
         });
-        window.addEventListener('pointermove',function(e) {
+        window.addEventListener('touchmove',function(e) {
+            console.log('moving');
             if (moving) {
-                const currentPosition = e.pageX;
+              
+                
+                touch = e.changedTouches[0];
+                const currentPosition = touch.pageX;
+                console.log("current position is " + currentPosition);
                 const diff = currentPosition - initialPosition ;
                 carousel.style.transform = `translateX(${transform + diff}px)`;
                 carouselPosition = transform + diff;
                 console.log(carouselPosition);
             }
         });
-        window.addEventListener('pointerup',function(event) {
+        window.addEventListener('touchend',function(event) {
+            console.log('end working');
             if (carouselPosition < -150 && carouselPosition > -525) {
                 carousel.style.transform = 'translateX(-100%)';
                 document.querySelector('.CarouselButton1').classList.remove('active');
