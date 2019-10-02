@@ -85,7 +85,7 @@
     
     if (w < 680) {
          document.querySelector('.CarouselButton1').classList.add('active');
-         window.addEventListener('touchdown',function(e){
+         window.addEventListener('pointerdown',function(e){
             initialPosition = e.pageX;
             moving = true;
             const transitionMatrix = window.getComputedStyle(carousel).getPropertyValue('transform');
@@ -94,7 +94,7 @@
             }
             carousel.style.transition = 'initial';
         });
-        window.addEventListener('touchmove',function(e) {
+        window.addEventListener('pointermove',function(e) {
             if (moving) {
                 const currentPosition = e.pageX;
                 const diff = currentPosition - initialPosition ;
@@ -103,7 +103,7 @@
                 console.log(carouselPosition);
             }
         });
-        window.addEventListener('touchup',function(event) {
+        window.addEventListener('pointerup',function(event) {
             if (carouselPosition < -150 && carouselPosition > -525) {
                 carousel.style.transform = 'translateX(-100%)';
                 document.querySelector('.CarouselButton1').classList.remove('active');
