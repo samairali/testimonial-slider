@@ -85,7 +85,7 @@
     
     if (w < 680) {
          document.querySelector('.CarouselButton1').classList.add('active');
-         window.addEventListener('touchstart',function(e){
+         carousel.addEventListener('touchstart',function(e){
             console.log('working');
             initialPosition = e.changedTouches[0].pageX;
             moving = true;
@@ -96,7 +96,7 @@
             carousel.style.transition = 'initial';
             console.log(transform);
         });
-        window.addEventListener('touchmove',function(e) {
+        carousel.addEventListener('touchmove',function(e) {
             console.log('moving');
             if (moving) {
               
@@ -110,7 +110,7 @@
                 console.log(carouselPosition);
             }
         });
-        window.addEventListener('touchend',function(event) {
+        carousel.addEventListener('touchend',function(event) {
             console.log('end working');
             if (carouselPosition < -150 && carouselPosition > -525) {
                 carousel.style.transform = 'translateX(-100%)';
