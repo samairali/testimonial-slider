@@ -124,4 +124,13 @@ svg.CarouselButton {
     margin-top: 3rem;
     margin-bottom: 1rem;
   }
+  .sec-1{
+    opacity: 1;
+  }
+  .sec-2{
+    opacity: 0;
+  }
+  .sec-3{
+    opacity: 0;
+  }
 }

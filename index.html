@@ -17,7 +17,7 @@
 <div class="Section4 container">
     <div class="carousel">
         <div class="Testimonials slider">
-            <section class="carousel-data">
+            <section class="carousel-data sec-1">
                 <div class="pad-left-right">
                     &ldquo; <br>
                     Advance Opportunity is well respected and has strong relationships within the business, banking, legal and insolvency community. We&#39ll never surprise you with last-minute charges, because our fees are totally transparent (and actually quite affordable). We&#39ll also never try to force you into a one-size-fits-all solution. Because we get it, your business is unique.
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </section>
-            <section class="carousel-data">
+            <section class="carousel-data sec-2">
                 <div class="pad-left-right">
                     &ldquo; <br>
                     Advance Opportunity is well respected and has strong relationships within the business, banking, legal and insolvency community. We&#39ll never surprise you with last-minute charges, because our fees are totally transparent (and actually quite affordable). We&#39ll also never try to force you into a one-size-fits-all solution. Because we get it, your business is unique.
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </section>
-            <section class="carousel-data">
+            <section class="carousel-data sec-3">
                 <div class="pad-left-right">
                     &ldquo; <br>
                     Advance Opportunity is well respected and has strong relationships within the business, banking, legal and insolvency community. We&#39ll never surprise you with last-minute charges, because our fees are totally transparent (and actually quite affordable). We&#39ll also never try to force you into a one-size-fits-all solution. Because we get it, your business is unique.
@@ -114,10 +114,15 @@
             console.log('end working');
             if (carouselPosition < -150 && carouselPosition > -525) {
                 carousel.style.transform = 'translateX(-100%)';
+
                 document.querySelector('.CarouselButton1').classList.remove('active');
                 document.querySelector('.CarouselButton2').classList.add('active');
                 document.querySelector('.CarouselButton3').classList.remove('active');
                 carousel.style.transition = 'all ease 0.3s';
+                document.querySelector('.sec-1').style.opacity = '0';
+                document.querySelector('.sec-2').style.opacity = '1';
+                document.querySelector('.sec-3').style.opacity = '0';
+                document.querySelector('.sec-2').style.transition = 'all 1s';
                 
             }else if(carouselPosition < -525 && carouselPosition > -1600 ){
                 carousel.style.transform = 'translateX(-200%)';
@@ -125,12 +130,20 @@
                 document.querySelector('.CarouselButton2').classList.remove('active');
                 document.querySelector('.CarouselButton3').classList.add('active');
                 carousel.style.transition = 'all ease 0.3s';
+                document.querySelector('.sec-1').style.opacity = '0';
+                document.querySelector('.sec-2').style.opacity = '0';
+                document.querySelector('.sec-3').style.opacity = '1';
+                document.querySelector('.sec-3').style.transition = 'all 1s';
             }else if (carouselPosition > 0 || carouselPosition > -150) {
                 carousel.style.transform = 'translateX(0)';
                 document.querySelector('.CarouselButton1').classList.add('active');
                 document.querySelector('.CarouselButton2').classList.remove('active');
                 document.querySelector('.CarouselButton3').classList.remove('active');
                 carousel.style.transition = 'all ease 0.3s';
+                document.querySelector('.sec-1').style.opacity = '1';
+                document.querySelector('.sec-2').style.opacity = '0';
+                document.querySelector('.sec-3').style.opacity = '0';
+                document.querySelector('.sec-1').style.transition = 'all 1s';
             }
             moving = false;
         });
