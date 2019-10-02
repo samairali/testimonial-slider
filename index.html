@@ -70,7 +70,7 @@
         const slider = document.querySelector('.slider');
         document.querySelectorAll('.CarouselButton').forEach(function(indecator , ind){
             indecator.addEventListener('click',function(){
-                slider.style.transform = 'translate('+(ind) * -25+'%)';
+                slider.style.webkitTransform  = 'translate('+(ind) * -25+'%)';
                 document.querySelector('.CarouselNav .active').classList.remove('active');
                 this.classList.add('active');
             })
@@ -98,27 +98,27 @@
             if (moving) {
                 const currentPosition = e.pageX;
                 const diff = currentPosition - initialPosition ;
-                carousel.style.transform = `translateX(${transform + diff}px)`;
+                carousel.style.webkitTransform  = `translateX(${transform + diff}px)`;
                 carouselPosition = transform + diff;
                 console.log(carouselPosition);
             }
         });
         window.addEventListener('pointerup',function(event) {
             if (carouselPosition < -150 && carouselPosition > -525) {
-                carousel.style.transform = 'translateX(-100%)';
+                carousel.style.webkitTransform  = 'translateX(-100%)';
                 document.querySelector('.CarouselButton1').classList.remove('active');
                 document.querySelector('.CarouselButton2').classList.add('active');
                 document.querySelector('.CarouselButton3').classList.remove('active');
                 carousel.style.transition = 'all ease 0.3s';
                 
             }else if(carouselPosition < -525 && carouselPosition > -1600 ){
-                carousel.style.transform = 'translateX(-200%)';
+                carousel.style.webkitTransform  = 'translateX(-200%)';
                 document.querySelector('.CarouselButton1').classList.remove('active');
                 document.querySelector('.CarouselButton2').classList.remove('active');
                 document.querySelector('.CarouselButton3').classList.add('active');
                 carousel.style.transition = 'all ease 0.3s';
             }else if (carouselPosition > 0 || carouselPosition > -150) {
-                carousel.style.transform = 'translateX(0)';
+                carousel.style.webkitTransform  = 'translateX(0)';
                 document.querySelector('.CarouselButton1').classList.add('active');
                 document.querySelector('.CarouselButton2').classList.remove('active');
                 document.querySelector('.CarouselButton3').classList.remove('active');
