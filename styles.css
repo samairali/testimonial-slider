@@ -51,12 +51,14 @@ body {
 }
 
 .CarouselNav {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translate(-50%,0%);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* bottom: 25px; */
+    left: 50%;
+    transform: translate(-50%,0%);
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .CarouselButton {
@@ -110,5 +112,15 @@ svg.CarouselButton {
   .Section4{
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+  .CarouselNav {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* bottom: 25px; */
+    left: 50%;
+    transform: translate(-50%,0%);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
 }
